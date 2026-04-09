@@ -1,0 +1,55 @@
+---
+// Этот блок пока пустой, так как мы не используем фронтматтер.
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Управление сайтом</title>
+    <!-- 1. Подключаем скрипт Decap CMS из CDN -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <script>
+      // 2. Устанавливаем ФЛАГ, который говорит CMS: "Я буду управлять тобой вручную"
+      window.CMS_MANUAL_INIT = true;
+
+      // 3. Запускаем CMS с нужной конфигурацией
+      //    Важно: CMS.init() - это функция, которая заставляет всё заработать.
+      DecapCMS.init({
+        config: {
+          // Говорим: "Не ищи никакой config.yml, вот тебе моя конфигурация"
+          load_config_file: false,
+          // Временно используем test-repo, чтобы не было проблем с авторизацией
+          backend: {
+            name: "test-repo",
+          },
+          // Папка для загружаемых картинок
+          media_folder: "public/images",
+          public_folder: "/images",
+          // Наши коллекции
+          collections: [
+            {
+              name: "home",
+              label: "Главная страница",
+              files: [
+                {
+                  name: "hero",
+                  label: "Приветственный блок",
+                  file: "src/content/home/hero.json",
+                  fields: [
+                    { label: "Заголовок", name: "title", widget: "string" },
+                    { label: "Подзаголовок", name: "subtitle", widget: "text" },
+                    { label: "Текст на кнопке", name: "button_text", widget: "string" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

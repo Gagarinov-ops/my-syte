@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Временные примеры работ — замените на свои
+const works = [
+  {
+    title: "Сайт-визитка для стоматологии",
+    description: "Адаптивная вёрстка, форма записи, интеграция с WhatsApp",
+    tech: "HTML, Tailwind, JS",
+    link: "#"
+  },
+  {
+    title: "Лендинг для фитнес-клуба",
+    description: "Быстрая загрузка, анимации, таймер акции",
+    tech: "Astro, Tailwind",
+    link: "#"
+  },
+  {
+    title: "Интернет-магазин на WooCommerce",
+    description: "Каталог товаров, корзина, интеграция с платёжной системой",
+    tech: "WordPress, WooCommerce",
+    link: "#"
+  }
+];
+---
+
+<BaseLayout title="Портфолио">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold text-center mb-4">Мои работы</h1>
+    <p class="text-gray-600 text-center mb-12">Примеры сайтов, которые я сделал</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {works.map(work => (
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition">
+          <div class="h-40 bg-gray-200 flex items-center justify-center text-gray-400">
+            🖼️ Скриншот
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold mb-2">{work.title}</h3>
+            <p class="text-gray-600 text-sm mb-3">{work.description}</p>
+            <p class="text-xs text-gray-500 mb-4">Технологии: {work.tech}</p>
+            <a href={work.link} class="text-blue-600 hover:underline text-sm">Подробнее →</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

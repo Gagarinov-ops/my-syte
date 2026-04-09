@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    name: "Лендинг (одностраничный сайт)",
+    description: "Идеально для запуска продукта или акции. Высокая конверсия.",
+    price: "от 15 000 ₽",
+    time: "3–5 дней"
+  },
+  {
+    name: "Сайт-визитка",
+    description: "Для компаний, которым нужен представительский сайт с несколькими страницами.",
+    price: "от 25 000 ₽",
+    time: "5–7 дней"
+  },
+  {
+    name: "Сайт с админкой",
+    description: "Вы сможете сами менять тексты и фото. Без программиста.",
+    price: "от 40 000 ₽",
+    time: "7–10 дней"
+  },
+  {
+    name: "Интернет-магазин",
+    description: "Полноценный магазин с корзиной, оплатой и учётом товаров.",
+    price: "от 70 000 ₽",
+    time: "14–20 дней"
+  }
+];
+---
+
+<BaseLayout title="Услуги">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold text-center mb-12">Услуги и цены</h1>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      {services.map(service => (
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+          <h3 class="text-xl font-semibold mb-2">{service.name}</h3>
+          <p class="text-gray-600 mb-4">{service.description}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-2xl font-bold text-blue-600">{service.price}</span>
+            <span class="text-gray-500 text-sm">⏱ {service.time}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="#" class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+        Связаться с WhatsApp
+      </a>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Импортируем данные из CMS
+import heroData from '../content/home/hero.json';
+---
+
+<BaseLayout title="Главная">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <!-- Приветственный блок (данные из CMS) -->
+    <div class="text-center mb-16">
+      <h1 class="text-5xl font-bold text-gray-900 mb-4">
+        {heroData.title}
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        {heroData.subtitle}
+      </p>
+      <div class="mt-8">
+        <a href="/services" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+          {heroData.button_text}
+        </a>
+      </div>
+    </div>
+
+    <!-- Навыки (пока статика, потом тоже вынесем в CMS) -->
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <div class="text-3xl mb-3">⚡</div>
+        <h3 class="text-xl font-semibold mb-2">Быстрая вёрстка</h3>
+        <p class="text-gray-600">Сайты грузятся мгновенно. Никакого лишнего кода.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <div class="text-3xl mb-3">📱</div>
+        <h3 class="text-xl font-semibold mb-2">Адаптивность</h3>
+        <p class="text-gray-600">Корректно работает на телефонах, планшетах и ноутбуках.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <div class="text-3xl mb-3">🎨</div>
+        <h3 class="text-xl font-semibold mb-2">Современный стек</h3>
+        <p class="text-gray-600">Tailwind, Astro, чистый HTML/CSS — как вам удобнее.</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
