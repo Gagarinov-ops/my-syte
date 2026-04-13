@@ -1,5 +1,6 @@
 ---
-// Layout принимает заголовок страницы как параметр
+import '../styles/global.css';
+
 export interface Props {
   title: string;
 }
@@ -14,29 +15,24 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} | Сайты под ключ</title>
   </head>
-  <body class="bg-gray-50 text-gray-900">
-    <!-- ШАПКА -->
-    <header class="border-b border-gray-200 bg-white">
+  <body class="bg-bg-primary text-text-primary">
+    <header class="border-b border-border bg-bg-secondary">
       <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="text-xl font-bold text-blue-600">
-          Сайты под ключ
-        </a>
+        <a href="/" class="text-xl font-bold text-accent">Сайты под ключ</a>
         <nav class="space-x-6">
-          <a href="/" class="hover:text-blue-600 transition">Главная</a>
-          <a href="/services" class="hover:text-blue-600 transition">Услуги</a>
-          <a href="/portfolio" class="hover:text-blue-600 transition">Портфолио</a>
-          <a href="/contacts" class="hover:text-blue-600 transition">Контакты</a>
+          <a href="/" class="hover:text-accent transition">Главная</a>
+          <a href="/services" class="hover:text-accent transition">Услуги</a>
+          <a href="/portfolio" class="hover:text-accent transition">Портфолио</a>
+          <a href="/contacts" class="hover:text-accent transition">Контакты</a>
         </nav>
       </div>
     </header>
 
-    <!-- ОСНОВНОЕ СОДЕРЖИМОЕ СТРАНИЦЫ -->
     <main>
-      <slot />  <!-- Сюда подставится содержимое конкретной страницы -->
+      <slot />
     </main>
 
-    <!-- ПОДВАЛ -->
-    <footer class="border-t border-gray-200 mt-16 py-8 text-center text-gray-500 text-sm">
+    <footer class="border-t border-border mt-16 py-8 text-center text-text-secondary text-sm bg-bg-secondary">
       <div class="max-w-6xl mx-auto px-4">
         <p>© 2025 Сайты под ключ. Все права защищены.</p>
       </div>

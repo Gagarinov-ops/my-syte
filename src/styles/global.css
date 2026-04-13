@@ -1,1 +1,12 @@
+/* src/styles/global.css */
 @import "tailwindcss";
+
+@theme {
+  /* Основные цвета */
+  --color-bg-primary: #0A0A0A;
+  --color-bg-secondary: #1E293B;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-accent: #34D399;
+  --color-border: #334155;
+}
